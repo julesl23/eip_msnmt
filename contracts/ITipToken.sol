@@ -7,6 +7,7 @@ interface ITipToken {
     /// The holders of the 'nft' are approved to receive rewards.
     /// When an NFT Transfer event emits, this also indicates that the approved
     /// addresses for that NFT (if any) is reset to none.
+    /// Note: the ERC-165 identifier for this interface is 0x985A3267.
     event ApprovalForNFT(
         address[] holders,
         address indexed nft,
@@ -46,7 +47,7 @@ interface ITipToken {
         address owner_
     );
 
-    /// @dev This emits everytime a user tips an NFT holder.
+    /// @dev This emits every time a user tips an NFT holder.
     /// Also includes the reward token address and the reward token amount that
     /// will be held pending until the holder withdraws the reward tokens.
     event Tip(
@@ -159,7 +160,7 @@ interface ITipToken {
     /// @param amount Amount of ERC20 token to withdraw as a reward
     function withdraw(uint256 amount) external payable;
 
-    /// @notice MUST have idential behaviour to ERC20 balanceOf and is the amount
+    /// @notice MUST have identical behaviour to ERC20 balanceOf and is the amount
     /// of tip tokens held by 'user'
     /// @param user The user account
     /// @return The balance of tip tokens held by user
